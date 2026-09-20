@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.ui.theme.ComposeDemoTheme
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,5 +89,14 @@ fun DemoScreen(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineMedium,
             text = sliderPosition.toInt().toString() + "sp"
         )
+    }
+}
+@Preview(showSystemUi = true)
+@Composable
+fun DemoScreenPreview() {
+    ComposeDemoTheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            DemoScreen(modifier = Modifier.padding(innerPadding))
+        }
     }
 }
